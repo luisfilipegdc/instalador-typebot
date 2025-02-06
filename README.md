@@ -17,7 +17,7 @@ apt update && apt upgrade -y
 
 apt install sudo dos2unix -y
 
-sudo git clone https://github.com/launcherbr/instalador-typebot.git && cd instalador-typebot && sudo chmod +x ./typebot.sh
+sudo git clone https://github.com/luisfilipegdc/instalador-typebot.git && cd instalador-typebot && sudo chmod +x ./typebot.sh
 
 dos2unix typebot.sh
 
