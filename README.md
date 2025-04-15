@@ -30,7 +30,7 @@ apt install sudo dos2unix -y
 Clone o repositório do instalador e prepare o script:
 
 ```bash
-sudo git clone https://github.com/launcherbr/instalador-typebot.git && cd instalador-typebot && sudo chmod +x ./typebot.sh
+sudo git clone https://github.com/luisfilipegdc/instalador-typebot.git && cd instalador-typebot && sudo chmod +x ./typebot.sh
 ```
 Converta o script para o formato Unix (caso necessário):
 
