@@ -133,43 +133,5 @@ apt-get install docker-compose -y
 docker-compose up -d
 
 # Configuração Nginx para Typebot
-nano /etc/nginx/sites-available/typebot <<EOF1
-server {
-  listen 80;
-  server_name $TYPEBOT_DOMAIN;
-
-  location / {
-    proxy_pass http://127.0.0.1:$TYPEBOT_PORT;
-    proxy_http_version 1.1;
-    proxy_set_header Upgrade \$http_upgrade;
-    proxy_set_header Connection 'upgrade';
-    proxy_set_header Host \$host;
-    proxy_cache_bypass \$http_upgrade;
-  }
-}
-EOF1
-
-# Configuração Nginx para Chat
-nano /etc/nginx/sites-available/chat <<EOF2
-server {
-  listen 80;
-  server_name $CHAT_DOMAIN;
-
-  location / {
-    proxy_pass http://127.0.0.1:$CHAT_PORT;
-    proxy_http_version 1.1;
-    proxy_set_header Upgrade \$http_upgrade;
-    proxy_set_header Connection 'upgrade';
-    proxy_set_header Host \$host;
-    proxy_cache_bypass \$http_upgrade;
-  }
-}
-EOF2
-
-ln -s /etc/nginx/sites-available/typebot /etc/nginx/sites-enabled/
-ln -s /etc/nginx/sites-available/chat /etc/nginx/sites-enabled/
-nginx -t && systemctl restart nginx
-certbot --nginx -d $TYPEBOT_DOMAIN && certbot --nginx -d $CHAT_DOMAIN
-nginx -t && systemctl restart nginx
 
 echo "Instalação concluída!"
